@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+    <link rel="shortcut icon" href="stopwatch-icon.png" type="image/png">
+</head>
+
+<body>
+    <div class="stopwatch-container">
+        <button id="themeToggleButton" class="theme-toggle-button">
+            <span id="themeIcon">☀️</span>
+        </button>
+
+        <div class="time-display" id="timeDisplay">00:00:00.000</div>
+
+        <div class="controls">
+            <button id="startButton" class="start">Start</button>
+            <button id="pauseButton" class="pause" style="display: none;">Pause</button>
+            <button id="resetButton" class="reset">Reset</button>
+            <button id="lapButton" class="lap" style="display: none;">Lap</button>
+        </div>
+
+        <div class="lap-times-container">
+            <h2>Lap Times</h2>
+            <ul id="lapTimesList">
+            </ul>
+            <div id="totalLapTimeDisplay" style="display: none;">Total Time: 00:00:00.000</div>
+        </div>
+    </div>
+    
+
+    <script src="stopwatch.js"></script>
+</body>
+
+</html>
