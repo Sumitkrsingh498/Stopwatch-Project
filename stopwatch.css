@@ -1,0 +1,226 @@
+:root {
+    --bg-color: #1a202c;
+    --text-color: #e2e8f0;
+    --container-bg: #2d3748;
+    --container-border: #4a5568;
+    --time-color: #63b3ed;
+    --time-shadow-color: rgba(99, 179, 237, 0.6);
+    --button-bg-default: #4299e1;
+    --button-hover-default: #3182ce;
+    --button-shadow: rgba(0, 0, 0, 0.3);
+    --button-active-shadow: rgba(0, 0, 0, 0.4);
+    --start-button-bg: #48bb78;
+    --start-button-hover: #38a169;
+    --pause-button-bg: #ed8936;
+    --pause-button-hover: #dd6b20;
+    --reset-button-bg: #e53e3e;
+    --reset-button-hover: #c53030;
+    --lap-button-bg: #9f7aea;
+    --lap-button-hover: #805ad5;
+    --lap-area-bg: #1a202c;
+    --lap-item-bg: #2d3748;
+    --lap-item-text: #cbd5e0;
+    --lap-item-border: #63b3ed;
+    --heading-color: #a0aec0;
+    --toggle-button-color: #e2e8f0;
+    --toggle-button-hover-color: #cbd5e0;
+}
+
+.light-mode {
+    --bg-color: #f7fafc;
+    --text-color: #2d3748;
+    --container-bg: #ffffff;
+    --container-border: #e2e8f0;
+    --time-color: #3182ce;
+    --time-shadow-color: rgba(49, 130, 206, 0.3);
+    --button-bg-default: #63b3ed;
+    --button-hover-default: #4299e1;
+    --button-shadow: rgba(0, 0, 0, 0.1);
+    --button-active-shadow: rgba(0, 0, 0, 0.2);
+    --start-button-bg: #68d391;
+    --start-button-hover: #48bb78;
+    --pause-button-bg: #f6ad55;
+    --pause-button-hover: #ed8936;
+    --reset-button-bg: #fc8181;
+    --reset-button-hover: #e53e3e;
+    --lap-button-bg: #b794f4;
+    --lap-button-hover: #9f7aea;
+    --lap-area-bg: #edf2f7;
+    --lap-item-bg: #ffffff;
+    --lap-item-text: #4a5568;
+    --lap-item-border: #3182ce;
+    --heading-color: #718096;
+    --toggle-button-color: #4a5568;
+    --toggle-button-hover-color: #2d3748;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.stopwatch-container {
+    background-color: var(--container-bg);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px var(--button-shadow);
+    text-align: center;
+    width: 90%;
+    max-width: 480px;
+    border: 1px solid var(--container-border);
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--toggle-button-color);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    color: var(--toggle-button-hover-color);
+}
+
+.time-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--time-color);
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px var(--time-shadow-color);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+@media (max-width: 640px) {
+    .time-display {
+        font-size: 3.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .time-display {
+        font-size: 2.8rem;
+    }
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.controls button {
+    background-color: var(--button-bg-default);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 0.5rem;
+    border: none;
+    box-shadow: 0 4px 10px var(--button-shadow);
+}
+
+.controls button:hover {
+    background-color: var(--button-hover-default);
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px var(--button-active-shadow);
+}
+
+.controls button.start {
+    background-color: var(--start-button-bg);
+}
+.controls button.start:hover {
+    background-color: var(--start-button-hover);
+}
+
+.controls button.pause {
+    background-color: var(--pause-button-bg);
+}
+.controls button.pause:hover {
+    background-color: var(--pause-button-hover);
+}
+
+.controls button.reset {
+    background-color: var(--reset-button-bg);
+}
+.controls button.reset:hover {
+    background-color: var(--reset-button-hover);
+}
+
+.controls button.lap {
+    background-color: var(--lap-button-bg);
+}
+.controls button.lap:hover {
+    background-color: var(--lap-button-hover);
+}
+
+.lap-times-container {
+    margin-top: 2rem;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--lap-area-bg);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--container-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.lap-times-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+}
+
+#lapTimesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lapTimesList li {
+    background-color: var(--lap-item-bg);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--lap-item-text);
+    border-left: 4px solid var(--lap-item-border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+}
+
+#lapTimesList li:last-child {
+    margin-bottom: 0;
+}
+#totalLapTimeDisplay {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--time-color); 
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--container-border);
+    transition: color 0.3s ease, border-top-color 0.3s ease;
+}
